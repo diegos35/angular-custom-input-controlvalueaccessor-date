@@ -1,0 +1,61 @@
+<!-- Normal Input Form -->
+
+<!-- <div fxLayout="row" fxLayoutAlign="center center"> 
+  <span>Login Page</span>
+</div>
+
+<form fxLayout="column" fxLayoutGap="10px" [formGroup]="loginForm">
+
+  <label>Username</label>
+  <input type="text" formControlName='username'>
+
+  <div *ngIf="validate">
+    <span *ngIf="loginForm.get('username').touched && !loginForm.get('username').valid">Enter Username</span>
+  </div>
+  
+  <label>Password</label>
+  <input type="text" formControlName='password'>
+
+</form><br>
+
+<div fxLayout="row" fxLayoutAlign="end end">
+  <button (click)="submit()">Submit</button>
+</div> -->
+
+<!-- Custom Input Form -->
+
+<div fxLayout="row" fxLayoutAlign="center center">
+  <span>Login Page</span>
+</div>
+
+<div *ngIf="validate">
+  <!-- If want to add touched in the form must to add custom input event has blur event -->
+  <span
+    *ngIf="
+      loginForm.get('username').touched && !loginForm.get('username').valid
+    "
+    >Enter Username</span
+  >
+</div>
+
+<form fxLayout="column" fxLayoutGap="10px" [formGroup]="loginForm">
+  <label>Username</label>
+  <custom-input
+    formControlName="username"
+    fxFlex="100"
+    placeholder="name"
+    [autoFocus]="true"
+  ></custom-input>
+
+  <label>Password</label>
+  <custom-input
+    inputType="date"
+    formControlName="password"
+    fxFlex="100"
+  ></custom-input>
+</form>
+<br />
+
+<div fxLayout="row" fxLayoutAlign="end end">
+  <button (click)="submit()">Submit</button>
+</div>

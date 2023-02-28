@@ -1,0 +1,13 @@
+<input
+  #input
+  [type]="inputType"
+  [value]="value"
+  (input)="onInput($event.target.value)"
+  [placeholder]="placeholder"
+  [disabled]="isDisabled"
+  [fxFlex]="fxFlex"
+  [readOnly]="false"
+  [tabindex]="tabIndex"
+  (blur)="onTouched($event)"
+  (focus)="onFocus()"
+/>
